@@ -1,3 +1,14 @@
+resource "aws_instance" "roboshop_instance" {
+  ami =  "ami-09c813fb71547fc4f"
+  instance_type =  "t2.micro"
+  vpc_security_group_ids = [ aws_security_group.allow_all.id ]
+
+  tags = {
+    Name = "Hello Roboshop World"
+  }
+}
+
+
 resource "aws_security_group" "allow_all" {
     name        = "Allow All"
     description = "Allow all traffic"
